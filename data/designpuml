@@ -1,0 +1,124 @@
+@startuml RandomForestDesign
+
+skinparam ClassAttributeIconSize 0
+
+interface Node {
+    //+ predict(x : float[]) : int//
+    //+acceptVisitor(visitor : Visitor)//
+}
+
+
+class Dataset {
+    + X : float[][]
+    + y : int[]
+    + split(feature_index : int, threshold : float) : Dataset, Dataset
+    + random_sampling(ratio_samples : float) : Dataset
+    + most_frequent_label() : int
+    + mean_value() : float
+    + realtive_frequency() : float
+}
+
+interface Criterion{
+    //+calculate_impurity(dataset : Dataset) : float//
+}
+
+class Gini{
+    +calculate_impurity(dataset : Dataset) : float
+}
+
+class Entropy{
+    +calculate_impurity(dataset : Dataset) : float
+}
+
+class SumSquareError{
+    +calculate_impurity(dataset : Dataset) : float
+}
+
+class Parent {
+    - feature_index : int
+    - threshold : float
+    + predict(x : float[]) : int
+    +acceptVisitor(visitor : Visitor)
+}
+
+class Leaf {
+    - label : int
+    + predict(x : float[]) : int
+    +acceptVisitor(visitor : Visitor)
+}
+
+abstract class RandomForest {
+    - max_depth : int
+    - min_size : int
+    - ratio_samples : float
+    - num_trees : int
+    - num_random_features : float
+    - criterion : String
+    - do_multiprocessing : bool
+    - extra_trees : string
+    - ocurrences : dictionary
+    - depth : int
+    - actual_tree : int
+    + predict(X : float[][]) : int[]
+    + fit(X : float[][], y : float[])
+    - worker(subset : float[][]) :
+    - make_decision_trees(dataset : float[][] float[])
+    - make_node(dataset, depth)
+    - make_parent_or_leaf(dataset, depth)
+    - best_split(idx_features, dataset)
+    - CART_cost(left_dataset, right_dataset)
+    - feature_importance() : float[]
+    - print_trees()
+    //- makeLeaf(dataset) : Leaf//
+    //- combinePredicitions(float[]) : float//
+    //- make_impurity(string) : Criterion//
+}
+
+class RandomForestClassifier{
+    - makeLeaf(dataset) : Leaf
+    - combinePredicitions(float[]) : float
+    - make_impurity(string) : Criterion
+
+}
+class RandomForestRegressor{
+    - makeLeaf(dataset) : Leaf//
+    - combinePredicitions(float[]) : float
+    - make_impurity(string) : Criterion
+
+}
+
+interface Visitor{
+    //+visitParent(parent : Parent)//
+    //+visitLeaf(leaf : Leaf)//
+}
+
+class FeatureImportance{
+    -ocurrences : dictionary
+    +visitParent(parent : Parent)
+    +visitLeaf(leaf : Leaf)
+}
+
+class PrinterTree{
+    -depth : int
+    +visitParent(parent : Parent)
+    +visitLeaf(leaf : Leaf)
+}
+
+
+Node <|-.- Parent
+Node <|-.- Leaf
+Node "1  "<-- Parent : left
+Node "1  "<-- Parent : right
+Node "1...*"<--* RandomForest
+Criterion <|-.- Gini
+Criterion <|-.- Entropy
+Criterion <|-.- SumSquareError
+Criterion <--* RandomForest :Criterion 1
+RandomForest <|-- RandomForestClassifier
+RandomForest <|-- RandomForestRegressor
+Visitor <|-.- FeatureImportance
+Visitor <|-.- PrinterTree
+
+
+
+@enduml
