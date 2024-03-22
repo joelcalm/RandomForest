@@ -68,7 +68,6 @@
 
 [Image][product-screenshot]
 
-The goal of this project is to classify data using neural networks. It should be good enough to be cut up and used for different projects.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -98,7 +97,7 @@ First, clone the repository:
    ```
 Access to the project folder with:
   ```sh
-  cd PytorchClassifier
+  cd RandomForest
   ```
 
 We will create a virtual environment with `python3`
