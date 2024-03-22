@@ -17,7 +17,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/joelcalm/RandomForest">
-    <img src="images/pytorch.png" alt="Logo" width="80" height="80">
+    <img src="img/rficon.png" alt="Logo" width="80" height="80">
   </a>  
 
   <h3 align="center">Random Forest</h3>
@@ -77,20 +77,17 @@ The goal of this project is to classify data using neural networks. It should be
 
 ### Built With
 
-* [Pytorch](https://pytorch.org/)
 * [scikit-learn](https://scikit-learn.org/)
 * [Numpy](https://numpy.org/)
 * [Pandas](https://pandas.pydata.org/)
 * [Logging](https://docs.python.org/3/library/logging.html)
-* [Seaborn](https://seaborn.pydata.org/)
+* [Matplotlib](https://matplotlib.org/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
-Given a csv with a target column, it processes the data and trains a predictor using neural networks.
 
 
 ### Installation
@@ -125,18 +122,14 @@ We will create a virtual environment with `python3`
 
 ## Usage
 
-Run `python train.py`
+Run the different main files:
+* 'main_creditcard.py'
+* 'main_dataset.py'
+* 'main_iris.py'
+* 'main_mnist.py'
+* 'main_mnistISO.py'
+* 'main_temp.py'
 
-
-## Roadmap
-
-- [x] Train model
-- [x] Loggers
-- [ ] BI
-    - [ ] Flask
-    - [ ] Plotly
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- CONTACT -->
@@ -165,4 +158,4 @@ Project Link: [https://github.com/joelcalm/RandomForest](https://github.com/joel
 [license-url]: https://github.com/joelcalm/RandomForest/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/joel-calm/
-[product-screenshot]: images/figures.png
+[product-screenshot]: img/figures.png
