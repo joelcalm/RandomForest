@@ -123,12 +123,12 @@ We will create a virtual environment with `python3`
 ## Usage
 
 Run the different main files:
-* 'main_creditcard.py'
-* 'main_dataset.py'
-* 'main_iris.py'
-* 'main_mnist.py'
-* 'main_mnistISO.py'
-* 'main_temp.py'
+* `main_creditcard.py`
+* `main_dataset.py`
+* `main_iris.py`
+* `main_mnist.py`
+* `main_mnistISO.py`
+* `main_temp.py`
 
 
 
